@@ -25,6 +25,25 @@ const create = async (req, res) => {
     }
 }
 
+const Signin = async (req, res) => {
+    try {
+        const token = await service.Signin(req.body.email,req.body.password);
+        return res.status(StatusCodes.OK).json({
+            Description: 'Login successful.',
+            Token : token,
+            Response: StatusCodes.OK,
+            success: true,
+        })
+    } catch (error) {
+        console.log(error);
+        return res.status(StatusCodes.BAD_REQUEST).json({
+            Description: 'Something went wrong. Please try again later.',
+            Response: error,
+            success: false,       
+        })
+    }
+}
+
 module.exports = {
-    create
+    create,Signin
 }
