@@ -25,7 +25,7 @@ class CrudRepo {
         }
 
     }
-    async update(data) {
+    async update(id,data) {
 
         try {
             const result = await this.model.findByIdAndUpdate(id,data,{new : true});
