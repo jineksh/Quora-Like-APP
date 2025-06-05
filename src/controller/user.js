@@ -4,6 +4,7 @@ const service = new UserService();
 
 const create = async (req, res) => {
     try {
+        console.log(req.body);
         const user = await service.create(req.body);
         return res.status(StatusCodes.CREATED).json({
             Description: 'Registers a new user',
