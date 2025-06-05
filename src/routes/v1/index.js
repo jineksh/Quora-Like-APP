@@ -2,6 +2,7 @@ const express = require('express');
 const UserController = require('../../controller/user');
 const TopicController = require('../../controller/topic');
 const QueController = require('../../controller/que');
+const AnsController = require('../../controller/ans');
 const Auth = require('../../utils/passport-jwt');
 const router = express.Router();
 
@@ -18,4 +19,9 @@ router.get('/topics',TopicController.get);
 
 router.post('/questions',QueController.create);
 router.get('/questions', QueController.getAll);
+
+router.post('/questions/:questionId/answers', AnsController.create);
+router.put('/answers/:answerId', AnsController.put);
+router.delete('/answers/:answerId', AnsController.deleteOne);
+
 module.exports = router;

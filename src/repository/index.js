@@ -6,5 +6,6 @@ module.exports={
     UserRepo : require('./user'),
     CrudRepo : require('./Crud-Repo'),
     queRepo : queRepo,
-    topicRepo : topicRepo
+    topicRepo : topicRepo,
+    ansRepo : require('./ans')
 }
